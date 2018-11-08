@@ -22,7 +22,7 @@ breeze-gtk
 kdeconnect
 user-manager
 print-manager
-cup
+cups
 hplip
 sshfs
 acpi
