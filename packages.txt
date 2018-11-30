@@ -33,3 +33,4 @@ git
 python
 python2
 vim
+flatpak
