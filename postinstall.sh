@@ -7,9 +7,10 @@ systemctl enable acpid.service
 systemctl enable fstrim.timer
 systemctl enable NetworkManager
 
+systemctl enable tlp.service
+systemctl enable tlp-sleep.service
+systemctl mask systemd-rfkill.service
+systemctl mask systemd-rfkill.socket
+
 echo "exec startkde" > ~/.xinitrc
 systemctl enable sddm
-
-useradd -m -g users -G wheel -s /bin/bash breadyx
-passwd breadyx
-EDITOR=nano visudo

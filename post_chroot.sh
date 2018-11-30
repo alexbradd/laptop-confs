@@ -1,27 +1,43 @@
 #!/bin/bash
 
-pacstrap /mnt base base-devel
-genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
-
+#CLOCK
+echo "Settings clock..."
 ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 kwclock --systohc
 
-nano /etc/locale.gen
+#LOCALE
+echo "Opening nano for locale gen..."
+sleep 2s; nano /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "KEYMAP=it" > /etc/vconsole.conf
 
+#HOST
 echo "breadyx-laptop" > /etc/hostname
 echo "127.0.0.1	localhost" > /etc/hosts
 echo "::1 localhost" >> /etc/hosts
 echo "127.0.1.1 breadyx-laptop.localdomain breadyx-laptop" >> /etc/hosts
 
+#MKINIT
 mkinitcpio -p linux
-passwd 
 
+#ROOT PASSWD
+echo "Selecting root passwd..."
+passwd root
+
+#BOOTLOADER
+echo "Installing grub"
 pacman -S grub efibootmgr
-# mkdir /boot/efi
-# mount /dev/sda1 /boot/efi
 grub-install --target=x86_64-efi --bootloader-id=ARCH --efi-directory=/boot/efi
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-mkconfig -o /boot/grub/grub.cfg 
+
+#USER
+echo "Enter username:"
+read USER
+useradd -m -g users -G wheel -s /bin/bash $USER
+passwd $USER
+
+echo "Opening nano to set sudo privileges..."
+sleep 2s; EDITOR=nano visudo
+
+exit

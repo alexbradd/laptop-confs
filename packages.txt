@@ -4,7 +4,6 @@ xf86-video-amdgpu
 vulkan-radeon
 libva-mesa-driver
 mesa-vdpau
-lib32-{mesa,vulkan-radeon,libva-mesa-driver,mesa-vdpau}
 bluez
 bluez-utils
 xf86-input-synaptics
@@ -30,9 +29,7 @@ acpid
 powerdevil
 upower
 tlp
-powertop
 git
 python
-python-{pip,pyqt5}
 python2
-python2-{pip,pyqy5}
+vim
