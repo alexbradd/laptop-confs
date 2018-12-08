@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#
+# /etc/rc
+# This script is executed at boot by rc.service systemd service
+# 
+
+rfkill block bluetooth # disable bluetooth at boot
+echo "powersupersave" > /sys/module/pcie_aspm/parameters/policy # enable powersupersave ASPM policy 
