@@ -122,14 +122,14 @@ DISK_APM_LEVEL_ON_BAT="128 128"
 # Select IO scheduler for the disk devices: cfq, deadline, noop (Default: cfq).
 # Separate values for multiple disks with spaces. Use the special value 'keep'
 # to keep the kernel default scheduler for the particular disk.
-DISK_IOSCHED="bfq bfq"
+DISK_IOSCHED="mq-deadline mq-deadline"
 
 # AHCI link power management (ALPM) for disk devices:
 #   min_power, med_power_with_dipm(*), medium_power, max_performance.
 # (*) Kernel >= 4.15 required, then recommended.
 # Multiple values separated with spaces are tried sequentially until success.
 SATA_LINKPWR_ON_AC="max_performance max_performance"
-SATA_LINKPWR_ON_BAT="med_power_with_dipm med_power_with_dipm"
+SATA_LINKPWR_ON_BAT="min_power min_power"
 
 # Exclude host devices from AHCI link power management.
 # Separate multiple hosts with spaces.
@@ -138,8 +138,8 @@ SATA_LINKPWR_ON_BAT="med_power_with_dipm med_power_with_dipm"
 # Runtime Power Management for AHCI host and disks devices:
 #   on=disable, auto=enable.
 # EXPERIMENTAL ** WARNING: auto will most likely cause system lockups/data loss.
-#AHCI_RUNTIME_PM_ON_AC=on
-#AHCI_RUNTIME_PM_ON_BAT=on
+AHCI_RUNTIME_PM_ON_AC=on
+AHCI_RUNTIME_PM_ON_BAT=on
 
 # Seconds of inactivity before disk is suspended.
 AHCI_RUNTIME_PM_TIMEOUT=15
@@ -160,7 +160,7 @@ RADEON_DPM_STATE_ON_BAT=battery
 
 # Radeon DPM performance level: auto, low, high; auto is recommended.
 RADEON_DPM_PERF_LEVEL_ON_AC=auto
-RADEON_DPM_PERF_LEVEL_ON_BAT=auto
+RADEON_DPM_PERF_LEVEL_ON_BAT=low
 
 # WiFi power saving mode: on=enable, off=disable; not supported by all adapters.
 WIFI_PWR_ON_AC=off
@@ -199,7 +199,7 @@ RUNTIME_PM_ON_BAT=auto
 # prevents accidential power-on of dGPU in hybrid graphics setups.
 # Use "" to disable the feature completely.
 # Separate multiple drivers with spaces.
-#RUNTIME_PM_DRIVER_BLACKLIST="amdgpu nouveau nvidia radeon"
+RUNTIME_PM_DRIVER_BLACKLIST=""
 
 # Set to 0 to disable, 1 to enable USB autosuspend feature.
 USB_AUTOSUSPEND=1

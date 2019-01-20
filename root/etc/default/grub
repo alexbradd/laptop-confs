@@ -1,10 +1,10 @@
 # GRUB boot loader configuration
 
-GRUB_DEFAULT=0
-GRUB_TIMEOUT=0
+GRUB_DEFAULT="Arch Linux, with Linux linux"
+GRUB_TIMEOUT=2
 GRUB_DISTRIBUTOR="Arch Linux"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet resume=UUID=4a74e38c-33b4-4db2-82a6-1ed900374161 acpi_backlight=vendor"
-GRUB_CMDLINE_LINUX="acpi_osi=Linux acpi_osi='!Windows 2015' acpi=force acpi_enforce_resources=lax pcie_aspm=force"
+GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=4a74e38c-33b4-4db2-82a6-1ed900374161 acpi_backlight=vendor acpi_osi=Linux acpi_osi='!Windows 2015' net.ipv4.tcp_ecn=0 amdgpu.ppfeaturemask=0xffffffff"
+GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"
@@ -13,7 +13,7 @@ GRUB_PRELOAD_MODULES="part_gpt part_msdos"
 #GRUB_ENABLE_CRYPTODISK=y
 
 # Uncomment to enable Hidden Menu, and optionally hide the timeout count
-GRUB_HIDDEN_TIMEOUT=5
+GRUB_HIDDEN_TIMEOUT=2
 GRUB_HIDDEN_TIMEOUT_QUIET=true
 
 # Uncomment to use basic console
@@ -44,7 +44,7 @@ GRUB_GFXPAYLOAD_LINUX=keep
 
 # Uncomment one of them for the gfx desired, a image background or a gfxtheme
 #GRUB_BACKGROUND="/path/to/wallpaper"
-#GRUB_THEME="/path/to/gfxtheme"
+#GRUB_THEME="/boot/grub/themes/starfield/theme.txt"
 
 # Uncomment to get a beep at GRUB start
 #GRUB_INIT_TUNE="480 440 1"
