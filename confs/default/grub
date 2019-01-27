@@ -1,10 +1,11 @@
 # GRUB boot loader configuration
-
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR="Arch Linux"
-GRUB_CMDLINE_LINUX_DEFAULT="quiet resume=UUID=4a74e38c-33b4-4db2-82a6-1ed900374161 acpi_backlight=vendor"
-GRUB_CMDLINE_LINUX="acpi_osi=Linux acpi_osi='!Windows 2015' acpi=force acpi_enforce_resources=lax pcie_aspm=force"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet acpi_backlight=vendor acpi_osi=Linux acpi_osi='!Windows 2015'"
+GRUB_CMDLINE_LINUX=""
+
+# resume=UUID=4a74e38c-33b4-4db2-82a6-1ed900374161
 
 # Preload both GPT and MBR modules so that they are not missed
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"

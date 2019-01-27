@@ -122,7 +122,7 @@ DISK_APM_LEVEL_ON_BAT="128 128"
 # Select IO scheduler for the disk devices: cfq, deadline, noop (Default: cfq).
 # Separate values for multiple disks with spaces. Use the special value 'keep'
 # to keep the kernel default scheduler for the particular disk.
-DISK_IOSCHED="bfq bfq"
+DISK_IOSCHED="mq-deadline mq-deadline"
 
 # AHCI link power management (ALPM) for disk devices:
 #   min_power, med_power_with_dipm(*), medium_power, max_performance.
@@ -160,7 +160,7 @@ RADEON_DPM_STATE_ON_BAT=battery
 
 # Radeon DPM performance level: auto, low, high; auto is recommended.
 RADEON_DPM_PERF_LEVEL_ON_AC=auto
-RADEON_DPM_PERF_LEVEL_ON_BAT=auto
+RADEON_DPM_PERF_LEVEL_ON_BAT=low
 
 # WiFi power saving mode: on=enable, off=disable; not supported by all adapters.
 WIFI_PWR_ON_AC=off

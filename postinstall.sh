@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat packages.txt | xargs pacman -S
+xargs pacman -S --noconfirm < packages.txt
 
 systemctl enable bluetooth.service
 systemctl enable acpid.service

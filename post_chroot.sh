@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #CLOCK
-echo "Settings clock..."
+echo "Setting clock..."
 ln -sf /usr/share/zoneinfo/Europe/Rome /etc/localtime
 kwclock --systohc
 
@@ -30,13 +30,13 @@ passwd root
 echo "Installing grub"
 pacman -S grub efibootmgr
 grub-install --target=x86_64-efi --bootloader-id=ARCH --efi-directory=/boot/efi
-grub-mkconfig -o /boot/grub/grub.cfg 
+grub-mkconfig -o /boot/grub/grub.cfg
 
 #USER
 echo "Enter username:"
-read USER
-useradd -m -g users -G wheel -s /bin/bash $USER
-passwd $USER
+read -r USER
+useradd -m -g users -G wheel -s /bin/bash "$USER"
+passwd "$USER"
 
 echo "Opening nano to set sudo privileges..."
 sleep 2s; EDITOR=nano visudo

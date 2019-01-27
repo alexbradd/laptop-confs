@@ -1,3 +1,0 @@
-# disable bluetooth
-SUBSYSTEM=="rfkill", ATTR{type}=="bluetooth", ATTR{state}="0"
- 
