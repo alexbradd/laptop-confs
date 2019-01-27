@@ -11,6 +11,3 @@ systemctl enable tlp.service
 systemctl enable tlp-sleep.service
 systemctl mask systemd-rfkill.service
 systemctl mask systemd-rfkill.socket
-
-echo "exec startkde" > ~/.xinitrc
-systemctl enable sddm
