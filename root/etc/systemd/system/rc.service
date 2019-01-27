@@ -1,0 +1,8 @@
+[Unit]
+Description=Service that runs all commands found inside /etc/rc
+
+[Service]
+ExecStart=/etc/rc
+
+[Install]
+WantedBy=multi-user.target

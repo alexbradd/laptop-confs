@@ -129,7 +129,7 @@ DISK_IOSCHED="mq-deadline mq-deadline"
 # (*) Kernel >= 4.15 required, then recommended.
 # Multiple values separated with spaces are tried sequentially until success.
 SATA_LINKPWR_ON_AC="max_performance max_performance"
-SATA_LINKPWR_ON_BAT="med_power_with_dipm med_power_with_dipm"
+SATA_LINKPWR_ON_BAT="min_power min_power"
 
 # Exclude host devices from AHCI link power management.
 # Separate multiple hosts with spaces.
@@ -138,8 +138,8 @@ SATA_LINKPWR_ON_BAT="med_power_with_dipm med_power_with_dipm"
 # Runtime Power Management for AHCI host and disks devices:
 #   on=disable, auto=enable.
 # EXPERIMENTAL ** WARNING: auto will most likely cause system lockups/data loss.
-#AHCI_RUNTIME_PM_ON_AC=on
-#AHCI_RUNTIME_PM_ON_BAT=on
+AHCI_RUNTIME_PM_ON_AC=on
+AHCI_RUNTIME_PM_ON_BAT=on
 
 # Seconds of inactivity before disk is suspended.
 AHCI_RUNTIME_PM_TIMEOUT=15
@@ -199,7 +199,7 @@ RUNTIME_PM_ON_BAT=auto
 # prevents accidential power-on of dGPU in hybrid graphics setups.
 # Use "" to disable the feature completely.
 # Separate multiple drivers with spaces.
-#RUNTIME_PM_DRIVER_BLACKLIST="amdgpu nouveau nvidia radeon"
+RUNTIME_PM_DRIVER_BLACKLIST=""
 
 # Set to 0 to disable, 1 to enable USB autosuspend feature.
 USB_AUTOSUSPEND=1
