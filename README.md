@@ -1,5 +1,5 @@
 # laptop-confs
-This repository contains some of the configs used for my laptop.
+This repository contains some of the configs and binaries I use to get the most
+out of my laptop.
 
-- Laptop: Asus X505ZA
-- OS: openSUSE Leap
+OS: Fedora Latest
