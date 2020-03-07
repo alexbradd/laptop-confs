@@ -6,7 +6,7 @@ Before=basic.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/undervolt.sh
+ExecStart=/usr/local/bin/undervolt
 
 [Install]
 WantedBy=basic.target sleep.target

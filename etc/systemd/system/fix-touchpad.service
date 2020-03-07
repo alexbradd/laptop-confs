@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix touchpad by reloading i2c_hid
+DefaultDependencies=yes
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/reload-touchpad
+
+[Install]
+WantedBy=multi-user.target

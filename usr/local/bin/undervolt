@@ -7,13 +7,14 @@
 # P2 - FID 60 (1.6 GHz) - DID C - VID A8 (0.50 V)
 #
 
+PREFIX="/usr/local/libexec/undervolt/"
+
 # Check if zenstates is installed
-[ -x /usr/local/bin/zenstates.py ] || { echo "/usr/local/bin/zenstates.py is not executable";
-    exit 1; }
+[ -x "$PREFIX/zenstates.py" ] || { echo "zenstates.py is not executable"; exit 1; }
 
 # Set P2
-/usr/local/bin/zenstates.py -p 2 -f 60 -d C -v A8
+$PREFIX/zenstates.py -p 2 -f 60 -d C -v A8
 # Set P1
-/usr/local/bin/zenstates.py -p 1 -f 66 -d C -v A6
+$PREFIX/zenstates.py -p 1 -f 66 -d C -v A6
 # Set P0
-/usr/local/bin/zenstates.py -p 0 -f 64 -d A -v 58
+$PREFIX/zenstates.py -p 0 -f 64 -d A -v 58
